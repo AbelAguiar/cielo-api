@@ -158,7 +158,7 @@ class Cielo
      */
     protected function isValidKey($merchantKey)
     {
-        return (bool) preg_match('/^[A-Z0-9]{40}$/', $merchantKey);
+        return (bool) preg_match('/^[a-zA-Z0-9]{40}$/', $merchantKey);
     }
 
     protected function validateCustomerAndPaymentMethod()
