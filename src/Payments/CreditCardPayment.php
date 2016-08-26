@@ -59,7 +59,7 @@ class CreditCardPayment extends Payment implements Arrayable
      */
     public function getCardBrand()
     {
-        return ($this->brand)?: 'Unknown';
+        return ($this->brand)?: 'Visa';
     }
 
     /**
@@ -75,7 +75,7 @@ class CreditCardPayment extends Payment implements Arrayable
                 return;
             }
 
-            $this->brand = 'Unknown';
+            $this->brand = 'Visa';
         }
     }
 

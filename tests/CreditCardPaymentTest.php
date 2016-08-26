@@ -43,7 +43,7 @@ class CreditCardPaymentTest extends TestCase
                     'installments' => 10,
                     'amount' => 129.90
                 ],
-                'Unknown'
+                'Visa'
             ],
             [
                 [
