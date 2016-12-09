@@ -27,7 +27,7 @@ class CieloClient
             'base_uri' => $queryEndpoint
         ]);
 
-        $this->requestId = Uuid::uuid1();
+        $this->requestId = Uuid::Uuid4();
     }
 
     /**
@@ -46,7 +46,7 @@ class CieloClient
         ];
 
         $json = [
-            'MerchantOrderId' => Uuid::uuid1(),
+            'MerchantOrderId' => Uuid::Uuid4(),
             'Customer' => $cielo->getCustomer()->toArray(),
             'Payment' => $cielo->getPaymentMethod()->toArray()
         ];
