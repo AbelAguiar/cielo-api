@@ -85,7 +85,7 @@ class DebitCardPayment extends Payment implements Arrayable
             'Type' => $this->paymentType,
             'Amount' => $this->getIntegerAmount(),
             'ReturnUrl' => "http://www.cielo.com.br",
-            'CreditCard' => [
+            'DebitCard' => [
                 'CardNumber' => $this->cardNumber,
                 'Holder' => $this->holder,
                 'ExpirationDate' => $this->expirationDate,
