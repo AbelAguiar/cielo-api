@@ -40,7 +40,7 @@ $cielo = new Cielo(
     'Your Merchant Key goes here'
 );
 
-// Create a new instance of Payment Method...
+// Create a new instance of Payment Method Credit...
 $creditCard = new CreditCardPayment([
     'cardNumber' => '0000000000000001',
     'holder' => 'John F Doe',
@@ -56,8 +56,25 @@ $cielo->setCustomer('John F. Doe')
 
 // Performs a transaction...
 $response = $cielo->performTransaction();
-```
 
+// or ------------------------------------
+
+// Create a new instance of Payment Method Debit...
+$debitCard = new DebitCardPayment([
+    'cardNumber' => '0000000000000001',
+    'holder' => 'John F Doe',
+    'expirationDate' => '12/2020',
+    'securityCode' => '123',
+    'amount' => 259.90
+]);
+
+// Set the Customer and the Payment Method...
+$cielo->setCustomer('John F. Doe')
+      ->setPaymentMethod($debitCard);
+
+// Performs a transaction...
+$response = $cielo->performTransaction();
+```
 Consulting a Transaction
 ----
 ```php
