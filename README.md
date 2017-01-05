@@ -20,7 +20,7 @@ composer require ianrodriguesbr/cielo-api
 or you can add this in your `composer.json`
 ```json
 "require": {
-    "ianrodriguesbr/cielo-api": "^1.0"
+    "ianrodriguesbr/cielo-api": "^1.1"
 }
 ```
 
