@@ -11,6 +11,7 @@ class DebitCardPayment extends Payment implements Arrayable
     protected $paymentType = 'DebitCard';
 
     protected $cardNumber;
+    protected $returnUrl;
     protected $holder;
     protected $expirationDate;
     protected $securityCode;
@@ -84,7 +85,7 @@ class DebitCardPayment extends Payment implements Arrayable
         return [
             'Type' => $this->paymentType,
             'Amount' => $this->getIntegerAmount(),
-            'ReturnUrl' => "http://www.cielo.com.br",
+            'ReturnUrl' => $this->returnUrl,
             'DebitCard' => [
                 'CardNumber' => $this->cardNumber,
                 'Holder' => $this->holder,

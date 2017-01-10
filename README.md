@@ -65,7 +65,8 @@ $debitCard = new DebitCardPayment([
     'holder' => 'John F Doe',
     'expirationDate' => '12/2020',
     'securityCode' => '123',
-    'amount' => 259.90
+    'amount' => 259.90,
+    'returnUrl' => 'https://www.cielo.com.br'
 ]);
 
 // Set the Customer and the Payment Method...
@@ -75,7 +76,7 @@ $cielo->setCustomer('John F. Doe')
 // Performs a transaction...
 $response = $cielo->performTransaction();
 ```
-Consulting a Transaction
+Consulting or Capture a Transaction
 ----
 ```php
 <?php
@@ -92,4 +93,7 @@ $cielo = new Cielo(
 
 // Consult a transaction by id...
 $response = $cielo->consultTransaction('Transaction ID goes here');
+
+// Consult a transaction by id...
+$response = $cielo->captureTransaction('Transaction ID goes here');
 ```
