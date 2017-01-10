@@ -77,4 +77,25 @@ class CieloClient
 
         return json_decode($res->getBody()->getContents());
     }
+
+    /**
+     * Capture a transaction by the Payment ID.
+     *
+     * @param Cielo   $cielo
+     * @param string  $paymentId
+     *
+     * @return stdClass
+     */
+    public function captureTransaction(Cielo $cielo, $paymentId)
+    {
+        $headers = [
+            'Content-Type' => 'application/json',
+            'MerchantId' => $cielo->getMerchantId(),
+            'MerchantKey' => $cielo->getMerchantKey()
+        ];
+
+        $res = $this->perform->put('/1/sales/' . $paymentId . '/capture', compact('headers'));
+
+        return json_decode($res->getBody()->getContents());
+    }
 }
