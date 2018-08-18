@@ -5,14 +5,6 @@
 I'm working on it, don't take my changes seriously by now.
 ___Documentation of Cielo___: https://developercielo.github.io/manual/cielo-ecommerce#sandbox-e-ferramentas
 
-License
-----
-MIT
-
-Dependencies
-----
-* PHP >= 5.6.4
-
 Installing via Composer
 ----
 You can install via terminal, executing the following command:
