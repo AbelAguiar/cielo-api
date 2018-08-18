@@ -2,12 +2,12 @@
 
 namespace AbelAguiar\Cielo\Tests;
 
-use AbelAguiar\Cielo\Exceptions\InvalidMerchantIdException;
-use AbelAguiar\Cielo\Exceptions\InvalidMerchantKeyException;
-use AbelAguiar\Cielo\Exceptions\InvalidCustomerException;
-use AbelAguiar\Cielo\Exceptions\InvalidPaymentMethodException;
 use AbelAguiar\Cielo\Cielo;
 use AbelAguiar\Cielo\Customer;
+use AbelAguiar\Cielo\Exceptions\InvalidCustomerException;
+use AbelAguiar\Cielo\Exceptions\InvalidMerchantIdException;
+use AbelAguiar\Cielo\Exceptions\InvalidMerchantKeyException;
+use AbelAguiar\Cielo\Exceptions\InvalidPaymentMethodException;
 use AbelAguiar\Cielo\Payment;
 use AbelAguiar\Cielo\Payments\CreditCardPayment;
 use PHPUnit\Framework\TestCase;
@@ -22,8 +22,7 @@ class CieloTest extends TestCase
         $expectedException,
         $merchantId,
         $merchantKey
-    )
-    {
+    ) {
         $this->setExpectedException($expectedException);
 
         $cielo = new Cielo($merchantId, $merchantKey);
@@ -75,12 +74,12 @@ class CieloTest extends TestCase
     {
         $cielo = new Cielo($merchantId, $merchantKey);
         $creditCardPaymentMethod = new CreditCardPayment([
-            'cardNumber' => '0000000000000001',
-            'holder' => 'John F Doe',
+            'cardNumber'     => '0000000000000001',
+            'holder'         => 'John F Doe',
             'expirationDate' => '12/2016',
-            'securityCode' => '123',
-            'installments' => 10,
-            'amount' => 129.90
+            'securityCode'   => '123',
+            'installments'   => 10,
+            'amount'         => 129.90,
         ]);
 
         $cielo->setPaymentMethod($creditCardPaymentMethod);
@@ -123,12 +122,12 @@ class CieloTest extends TestCase
         );
 
         $paymentMethod = new CreditCardPayment([
-            'cardNumber' => '0000000000000001',
-            'holder' => 'John F Doe',
+            'cardNumber'     => '0000000000000001',
+            'holder'         => 'John F Doe',
             'expirationDate' => '12/2016',
-            'securityCode' => '123',
-            'installments' => 10,
-            'amount' => 129.90
+            'securityCode'   => '123',
+            'installments'   => 10,
+            'amount'         => 129.90,
         ]);
 
         $cielo->setCustomer('John F Doe')
@@ -146,14 +145,14 @@ class CieloTest extends TestCase
             [
                 InvalidMerchantKeyException::class,
                 'a1s2d3f4-a1s2-a1s2-a1s2-a1s2d3f4g5h6',
-                'invalid merchant key'
+                'invalid merchant key',
             ],
             // invalid merchant id, valid merchant key
             [
                 InvalidMerchantIdException::class,
                 'invalid merchant id',
-                'Q1W2E3R4T5Y6U7I8O9P0Z0X9C8V7B6N5M4L3J2H1'
-            ]
+                'Q1W2E3R4T5Y6U7I8O9P0Z0X9C8V7B6N5M4L3J2H1',
+            ],
         ];
     }
 
@@ -161,7 +160,7 @@ class CieloTest extends TestCase
     {
         return [
             ['xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', '0123456789012345678901234567890123456789'],
-            ['a1s2d3f4-a1s2-a1s2-a1s2-a1s2d3f4g5h6', 'Q1W2E3R4T5Y6U7I8O9P0Z0X9C8V7B6N5M4L3J2H1']
+            ['a1s2d3f4-a1s2-a1s2-a1s2-a1s2d3f4g5h6', 'Q1W2E3R4T5Y6U7I8O9P0Z0X9C8V7B6N5M4L3J2H1'],
         ];
     }
 }
