@@ -1,7 +1,7 @@
-# PHP-SDK for Cielo API 3.0
+# PHP-SDK for Cielo API
 
 I'm working on it, don't take my changes seriously by now.
-___Documentation of Cielo___: https://developercielo.github.io/Webservice-3.0/
+___Documentation of Cielo___: https://developercielo.github.io/manual/cielo-ecommerce#sandbox-e-ferramentas
 
 License
 ----
@@ -15,12 +15,12 @@ Installing via Composer
 ----
 You can install via terminal, executing the following command:
 ```shell
-composer require ianrodriguesbr/cielo-api
+composer require abelaguiar/cielo-api
 ```
 or you can add this in your `composer.json`
 ```json
 "require": {
-    "ianrodriguesbr/cielo-api": "^1.1"
+    "abelaguiar/cielo-api": "^1.1.1"
 }
 ```
 
@@ -31,8 +31,8 @@ Performing a Simple Transaction
 
 require_once('vendor/autoload.php');
 
-use IanRodriguesBR\Cielo\Cielo;
-use IanRodriguesBR\Cielo\Payments\CreditCardPayment;
+use AbelAguiar\Cielo\Cielo;
+use AbelAguiar\Cielo\Payments\CreditCardPayment;
 
 // Create a new instance of Cielo...
 $cielo = new Cielo(
@@ -40,7 +40,7 @@ $cielo = new Cielo(
     'Your Merchant Key goes here'
 );
 
-// Create a new instance of Payment Method...
+// Create a new instance of Payment Method Credit...
 $creditCard = new CreditCardPayment([
     'cardNumber' => '0000000000000001',
     'holder' => 'John F Doe',
@@ -56,16 +56,34 @@ $cielo->setCustomer('John F. Doe')
 
 // Performs a transaction...
 $response = $cielo->performTransaction();
-```
 
-Consulting a Transaction
+// or ------------------------------------
+
+// Create a new instance of Payment Method Debit...
+$debitCard = new DebitCardPayment([
+    'cardNumber' => '0000000000000001',
+    'holder' => 'John F Doe',
+    'expirationDate' => '12/2020',
+    'securityCode' => '123',
+    'amount' => 259.90,
+    'returnUrl' => 'https://www.cielo.com.br'
+]);
+
+// Set the Customer and the Payment Method...
+$cielo->setCustomer('John F. Doe')
+      ->setPaymentMethod($debitCard);
+
+// Performs a transaction...
+$response = $cielo->performTransaction();
+```
+Consulting or Capture a Transaction
 ----
 ```php
 <?php
 
 require_once('vendor/autoload.php');
 
-use IanRodriguesBR\Cielo\Cielo;
+use AbelAguiar\Cielo\Cielo;
 
 // Create a new instance of Cielo...
 $cielo = new Cielo(
@@ -75,4 +93,7 @@ $cielo = new Cielo(
 
 // Consult a transaction by id...
 $response = $cielo->consultTransaction('Transaction ID goes here');
+
+// Consult a transaction by id...
+$response = $cielo->captureTransaction('Transaction ID goes here');
 ```

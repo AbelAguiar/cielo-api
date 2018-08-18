@@ -1,8 +1,8 @@
 <?php
 
-namespace IanRodriguesBR\Cielo\Tests;
+namespace AbelAguiar\Cielo\Tests;
 
-use IanRodriguesBR\Cielo\Payments\DebitCardPayment;
+use AbelAguiar\Cielo\Payments\DebitCardPayment;
 use PHPUnit\Framework\TestCase;
 
 class DebitCardPaymentTest extends TestCase
@@ -72,7 +72,7 @@ class DebitCardPaymentTest extends TestCase
         return [
             [
                 [
-                    'creditCardNumber' => '0000000000000001',
+                    'debitCardNumber' => '0000000000000001',
                     'holderName' => 'John F. Doe',
                     'expirationDate' => '12/2016',
                     'security_code' => '123',

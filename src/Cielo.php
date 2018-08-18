@@ -1,12 +1,12 @@
 <?php
 
-namespace IanRodriguesBR\Cielo;
+namespace AbelAguiar\Cielo;
 
-use IanRodriguesBR\Cielo\Exceptions\InvalidMerchantIdException;
-use IanRodriguesBR\Cielo\Exceptions\InvalidMerchantKeyException;
-use IanRodriguesBR\Cielo\Exceptions\InvalidCustomerException;
-use IanRodriguesBR\Cielo\Exceptions\InvalidPaymentMethodException;
-use IanRodriguesBR\Cielo\Payment;
+use AbelAguiar\Cielo\Exceptions\InvalidMerchantIdException;
+use AbelAguiar\Cielo\Exceptions\InvalidMerchantKeyException;
+use AbelAguiar\Cielo\Exceptions\InvalidCustomerException;
+use AbelAguiar\Cielo\Exceptions\InvalidPaymentMethodException;
+use AbelAguiar\Cielo\Payment;
 
 class Cielo
 {
@@ -58,7 +58,7 @@ class Cielo
     /**
      * Sets the payment method.
      *
-     * @param \IanRodriguesBR\Cielo\Payment $payment
+     * @param \AbelAguiar\Cielo\Payment $payment
      */
     public function setPaymentMethod(Payment $paymentMethod)
     {
@@ -70,7 +70,7 @@ class Cielo
     /**
      * Gets the payment method.
      *
-     * @return \IanRodriguesBR\Cielo\Payment
+     * @return \AbelAguiar\Cielo\Payment
      */
     public function getPaymentMethod()
     {

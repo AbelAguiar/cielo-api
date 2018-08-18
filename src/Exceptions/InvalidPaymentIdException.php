@@ -1,6 +1,6 @@
 <?php
 
-namespace IanRodriguesBR\Cielo\Exceptions;
+namespace AbelAguiar\Cielo\Exceptions;
 
 class InvalidPaymentIdException extends \Exception
 {

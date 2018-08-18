@@ -1,6 +1,6 @@
 <?php
 
-namespace IanRodriguesBR\Cielo;
+namespace AbelAguiar\Cielo;
 
 use InvalidArgumentException;
 

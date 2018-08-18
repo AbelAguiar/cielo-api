@@ -1,8 +1,8 @@
 <?php
 
-namespace IanRodriguesBR\Cielo\Tests;
+namespace AbelAguiar\Cielo\Tests;
 
-use IanRodriguesBR\Cielo\Customer;
+use AbelAguiar\Cielo\Customer;
 use PHPUnit\Framework\TestCase;
 
 class CustomerTest extends TestCase

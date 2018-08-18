@@ -1,18 +1,18 @@
 {
-    "name": "ianrodriguesbr/cielo-api",
+    "name": "abelaguiar/cielo-api",
     "description": "PHP-SDK for Cielo API 3.0",
     "type": "library",
     "license": "MIT",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "authors": [
         {
-            "name": "Ian Rodrigues",
-            "email": "ianrodriguesbr@gmail.com"
+            "name": "Abel Aguiar",
+            "email": "abel.prog@gmail.com"
         }
     ],
     "autoload" : {
         "psr-4": {
-	       "IanRodriguesBR\\Cielo\\": "src/"
+	       "AbelAguiar\\Cielo\\": "src/"
         }
     },
     "require": {

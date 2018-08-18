@@ -1,6 +1,6 @@
 <?php
 
-namespace IanRodriguesBR\Cielo;
+namespace AbelAguiar\Cielo;
 
 use GuzzleHttp\Client as Guzzle;
 use Ramsey\Uuid\Uuid;
@@ -74,6 +74,27 @@ class CieloClient
         ];
 
         $res = $this->consult->get('/1/sales/' . $paymentId, compact('headers'));
+
+        return json_decode($res->getBody()->getContents());
+    }
+
+    /**
+     * Capture a transaction by the Payment ID.
+     *
+     * @param Cielo   $cielo
+     * @param string  $paymentId
+     *
+     * @return stdClass
+     */
+    public function captureTransaction(Cielo $cielo, $paymentId)
+    {
+        $headers = [
+            'Content-Type' => 'application/json',
+            'MerchantId' => $cielo->getMerchantId(),
+            'MerchantKey' => $cielo->getMerchantKey()
+        ];
+
+        $res = $this->perform->put('/1/sales/' . $paymentId . '/capture', compact('headers'));
 
         return json_decode($res->getBody()->getContents());
     }

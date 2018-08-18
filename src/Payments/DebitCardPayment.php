@@ -1,9 +1,9 @@
 <?php
 
-namespace IanRodriguesBR\Cielo\Payments;
+namespace AbelAguiar\Cielo\Payments;
 
-use IanRodriguesBR\Cielo\Payment;
-use IanRodriguesBR\Cielo\Contracts\Arrayable;
+use AbelAguiar\Cielo\Payment;
+use AbelAguiar\Cielo\Contracts\Arrayable;
 use RunTimeException;
 
 class DebitCardPayment extends Payment implements Arrayable
@@ -11,6 +11,7 @@ class DebitCardPayment extends Payment implements Arrayable
     protected $paymentType = 'DebitCard';
 
     protected $cardNumber;
+    protected $returnUrl;
     protected $holder;
     protected $expirationDate;
     protected $securityCode;
@@ -84,8 +85,8 @@ class DebitCardPayment extends Payment implements Arrayable
         return [
             'Type' => $this->paymentType,
             'Amount' => $this->getIntegerAmount(),
-            'ReturnUrl' => "http://www.cielo.com.br",
-            'CreditCard' => [
+            'ReturnUrl' => $this->returnUrl,
+            'DebitCard' => [
                 'CardNumber' => $this->cardNumber,
                 'Holder' => $this->holder,
                 'ExpirationDate' => $this->expirationDate,

@@ -1,15 +1,15 @@
 <?php
 
-namespace IanRodriguesBR\Cielo\Tests;
+namespace AbelAguiar\Cielo\Tests;
 
-use IanRodriguesBR\Cielo\Exceptions\InvalidMerchantIdException;
-use IanRodriguesBR\Cielo\Exceptions\InvalidMerchantKeyException;
-use IanRodriguesBR\Cielo\Exceptions\InvalidCustomerException;
-use IanRodriguesBR\Cielo\Exceptions\InvalidPaymentMethodException;
-use IanRodriguesBR\Cielo\Cielo;
-use IanRodriguesBR\Cielo\Customer;
-use IanRodriguesBR\Cielo\Payment;
-use IanRodriguesBR\Cielo\Payments\CreditCardPayment;
+use AbelAguiar\Cielo\Exceptions\InvalidMerchantIdException;
+use AbelAguiar\Cielo\Exceptions\InvalidMerchantKeyException;
+use AbelAguiar\Cielo\Exceptions\InvalidCustomerException;
+use AbelAguiar\Cielo\Exceptions\InvalidPaymentMethodException;
+use AbelAguiar\Cielo\Cielo;
+use AbelAguiar\Cielo\Customer;
+use AbelAguiar\Cielo\Payment;
+use AbelAguiar\Cielo\Payments\CreditCardPayment;
 use PHPUnit\Framework\TestCase;
 
 class CieloTest extends TestCase
