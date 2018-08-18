@@ -1,6 +1,6 @@
 {
     "name": "abelaguiar/cielo-api",
-    "description": "PHP-SDK for Cielo API 3.0",
+    "description": "PHP-SDK for Cielo API",
     "type": "library",
     "license": "MIT",
     "version": "1.1.1",
