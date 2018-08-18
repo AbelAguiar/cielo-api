@@ -1,6 +1,6 @@
 <?php
 
-namespace IanRodriguesBR\Cielo\Contracts;
+namespace AbelAguiar\Cielo\Contracts;
 
 interface Arrayable
 {

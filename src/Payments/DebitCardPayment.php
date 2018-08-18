@@ -1,9 +1,9 @@
 <?php
 
-namespace IanRodriguesBR\Cielo\Payments;
+namespace AbelAguiar\Cielo\Payments;
 
-use IanRodriguesBR\Cielo\Payment;
-use IanRodriguesBR\Cielo\Contracts\Arrayable;
+use AbelAguiar\Cielo\Payment;
+use AbelAguiar\Cielo\Contracts\Arrayable;
 use RunTimeException;
 
 class DebitCardPayment extends Payment implements Arrayable

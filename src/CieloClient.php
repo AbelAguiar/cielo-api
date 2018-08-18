@@ -1,6 +1,6 @@
 <?php
 
-namespace IanRodriguesBR\Cielo;
+namespace AbelAguiar\Cielo;
 
 use GuzzleHttp\Client as Guzzle;
 use Ramsey\Uuid\Uuid;

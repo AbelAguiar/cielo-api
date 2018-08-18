@@ -1,8 +1,8 @@
 <?php
 
-namespace IanRodriguesBR\Cielo;
+namespace AbelAguiar\Cielo;
 
-use IanRodriguesBR\Cielo\Contracts\Arrayable;
+use AbelAguiar\Cielo\Contracts\Arrayable;
 use InvalidArgumentException;
 
 class Customer implements Arrayable

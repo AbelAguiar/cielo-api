@@ -1,7 +1,7 @@
-# PHP-SDK for Cielo API 3.0
+# PHP-SDK for Cielo API
 
 I'm working on it, don't take my changes seriously by now.
-___Documentation of Cielo___: https://developercielo.github.io/Webservice-3.0/
+___Documentation of Cielo___: https://developercielo.github.io/manual/cielo-ecommerce#sandbox-e-ferramentas
 
 License
 ----
@@ -15,12 +15,12 @@ Installing via Composer
 ----
 You can install via terminal, executing the following command:
 ```shell
-composer require ianrodriguesbr/cielo-api
+composer require abelaguiar/cielo-api
 ```
 or you can add this in your `composer.json`
 ```json
 "require": {
-    "ianrodriguesbr/cielo-api": "^1.1"
+    "abelaguiar/cielo-api": "^1.1.1"
 }
 ```
 
@@ -31,8 +31,8 @@ Performing a Simple Transaction
 
 require_once('vendor/autoload.php');
 
-use IanRodriguesBR\Cielo\Cielo;
-use IanRodriguesBR\Cielo\Payments\CreditCardPayment;
+use AbelAguiar\Cielo\Cielo;
+use AbelAguiar\Cielo\Payments\CreditCardPayment;
 
 // Create a new instance of Cielo...
 $cielo = new Cielo(
@@ -83,7 +83,7 @@ Consulting or Capture a Transaction
 
 require_once('vendor/autoload.php');
 
-use IanRodriguesBR\Cielo\Cielo;
+use AbelAguiar\Cielo\Cielo;
 
 // Create a new instance of Cielo...
 $cielo = new Cielo(

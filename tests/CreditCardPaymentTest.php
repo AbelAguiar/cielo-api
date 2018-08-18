@@ -1,8 +1,8 @@
 <?php
 
-namespace IanRodriguesBR\Cielo\Tests;
+namespace AbelAguiar\Cielo\Tests;
 
-use IanRodriguesBR\Cielo\Payments\CreditCardPayment;
+use AbelAguiar\Cielo\Payments\CreditCardPayment;
 use PHPUnit\Framework\TestCase;
 
 class CreditCardPaymentTest extends TestCase
