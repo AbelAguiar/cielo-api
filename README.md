@@ -1,5 +1,7 @@
 # PHP-SDK for Cielo API
 
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/abelaguiar/cielo-api.svg)](https://packagist.org/packages/abelaguiar/cielo-api) [![Packagist](https://img.shields.io/packagist/l/abelaguiar/cielo-api.svg)](https://packagist.org/packages/abelaguiar/cielo-api) [![Packagist](https://img.shields.io/packagist/vpre/abelaguiar/cielo-api.svg)](https://packagist.org/packages/abelaguiar/cielo-api) [![Build Status](https://travis-ci.org/abelaguiar/cielo-api.svg?branch=master)](https://travis-ci.org/abelaguiar/cielo-api)
+
 I'm working on it, don't take my changes seriously by now.
 ___Documentation of Cielo___: https://developercielo.github.io/manual/cielo-ecommerce#sandbox-e-ferramentas
 
