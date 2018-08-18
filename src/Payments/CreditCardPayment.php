@@ -2,14 +2,14 @@
 
 namespace AbelAguiar\Cielo\Payments;
 
-use AbelAguiar\Cielo\Payment;
 use AbelAguiar\Cielo\Contracts\Arrayable;
+use AbelAguiar\Cielo\Payment;
 use RunTimeException;
 
 class CreditCardPayment extends Payment implements Arrayable
 {
     protected $paymentType = 'CreditCard';
-    
+
     protected $installments;
     protected $cardNumber;
     protected $holder;
@@ -23,7 +23,7 @@ class CreditCardPayment extends Payment implements Arrayable
         'JCB'             => '/^(?:2131|1800|35\d{3})\d{11}$/',
         'Discover'        => '/^6(?:011|5[0-9][0-9])[0-9]{12}$/',
         'DinersClub'      => '/^3(?:0[0-5]|[68][0-9])[0-9]{11}$/',
-        'AmericanExpress' => '/^3[47][0-9]{13}$/'
+        'AmericanExpress' => '/^3[47][0-9]{13}$/',
     ];
 
     public function __construct(array $attributes)
@@ -35,6 +35,7 @@ class CreditCardPayment extends Payment implements Arrayable
      * Sets the attributes for the credit card payment.
      *
      * @param array $attributes
+     *
      * @throws RunTimeException
      */
     protected function setAttributes($attributes)
@@ -59,7 +60,7 @@ class CreditCardPayment extends Payment implements Arrayable
      */
     public function getCardBrand()
     {
-        return ($this->brand)?: 'Visa';
+        return ($this->brand) ?: 'Visa';
     }
 
     /**
@@ -72,6 +73,7 @@ class CreditCardPayment extends Payment implements Arrayable
         foreach ($this->brandPatterns as $brand => $pattern) {
             if (preg_match($pattern, $cardNumber)) {
                 $this->brand = $brand;
+
                 return;
             }
 
@@ -87,16 +89,16 @@ class CreditCardPayment extends Payment implements Arrayable
     public function toArray()
     {
         return [
-            'Type' => $this->paymentType,
-            'Amount' => $this->getIntegerAmount(),
+            'Type'         => $this->paymentType,
+            'Amount'       => $this->getIntegerAmount(),
             'Installments' => $this->installments,
-            'CreditCard' => [
-                'CardNumber' => $this->cardNumber,
-                'Holder' => $this->holder,
+            'CreditCard'   => [
+                'CardNumber'     => $this->cardNumber,
+                'Holder'         => $this->holder,
                 'ExpirationDate' => $this->expirationDate,
-                'SecurityCode' => $this->securityCode,
-                'Brand' => $this->brand
-            ]
+                'SecurityCode'   => $this->securityCode,
+                'Brand'          => $this->brand,
+            ],
         ];
     }
 }

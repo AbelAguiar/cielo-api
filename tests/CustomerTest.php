@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class CustomerTest extends TestCase
 {
-    /** 
+    /**
      * @test
      * @dataProvider validCustomerNameProvider
      */
@@ -24,7 +24,7 @@ class CustomerTest extends TestCase
         return [
             ['John F. Doe'],
             ['Harold C. Cherry'],
-            ['Claudia J. Chan']
+            ['Claudia J. Chan'],
         ];
     }
 }

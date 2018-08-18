@@ -21,10 +21,10 @@ class CieloClient
         $queryEndpoint = ($production) ? self::PRODUCTION_QUERY_ENDPOINT : self::SANDBOX_QUERY_ENDPOINT;
 
         $this->perform = new Guzzle([
-            'base_uri' => $endpoint
+            'base_uri' => $endpoint,
         ]);
         $this->consult = new Guzzle([
-            'base_uri' => $queryEndpoint
+            'base_uri' => $queryEndpoint,
         ]);
 
         $this->requestId = Uuid::Uuid4();
@@ -40,15 +40,15 @@ class CieloClient
     public function performTransaction(Cielo $cielo)
     {
         $headers = [
-            'MerchantId' => $cielo->getMerchantId(),
+            'MerchantId'  => $cielo->getMerchantId(),
             'MerchantKey' => $cielo->getMerchantKey(),
-            'RequestId' => $this->requestId
+            'RequestId'   => $this->requestId,
         ];
 
         $json = [
             'MerchantOrderId' => Uuid::Uuid4(),
-            'Customer' => $cielo->getCustomer()->toArray(),
-            'Payment' => $cielo->getPaymentMethod()->toArray()
+            'Customer'        => $cielo->getCustomer()->toArray(),
+            'Payment'         => $cielo->getPaymentMethod()->toArray(),
         ];
 
         $res = $this->perform->post('/1/sales', compact('headers', 'json'));
@@ -59,8 +59,8 @@ class CieloClient
     /**
      * Consult a transaction by the Payment ID.
      *
-     * @param Cielo   $cielo
-     * @param string  $paymentId
+     * @param Cielo  $cielo
+     * @param string $paymentId
      *
      * @return stdClass
      */
@@ -68,12 +68,12 @@ class CieloClient
     {
         $headers = [
             'Content-Type' => 'application/json',
-            'MerchantId' => $cielo->getMerchantId(),
-            'MerchantKey' => $cielo->getMerchantKey(),
-            'RequestId' => $this->requestId
+            'MerchantId'   => $cielo->getMerchantId(),
+            'MerchantKey'  => $cielo->getMerchantKey(),
+            'RequestId'    => $this->requestId,
         ];
 
-        $res = $this->consult->get('/1/sales/' . $paymentId, compact('headers'));
+        $res = $this->consult->get('/1/sales/'.$paymentId, compact('headers'));
 
         return json_decode($res->getBody()->getContents());
     }
@@ -81,8 +81,8 @@ class CieloClient
     /**
      * Capture a transaction by the Payment ID.
      *
-     * @param Cielo   $cielo
-     * @param string  $paymentId
+     * @param Cielo  $cielo
+     * @param string $paymentId
      *
      * @return stdClass
      */
@@ -90,11 +90,11 @@ class CieloClient
     {
         $headers = [
             'Content-Type' => 'application/json',
-            'MerchantId' => $cielo->getMerchantId(),
-            'MerchantKey' => $cielo->getMerchantKey()
+            'MerchantId'   => $cielo->getMerchantId(),
+            'MerchantKey'  => $cielo->getMerchantKey(),
         ];
 
-        $res = $this->perform->put('/1/sales/' . $paymentId . '/capture', compact('headers'));
+        $res = $this->perform->put('/1/sales/'.$paymentId.'/capture', compact('headers'));
 
         return json_decode($res->getBody()->getContents());
     }

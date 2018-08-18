@@ -2,15 +2,13 @@
 
 namespace AbelAguiar\Cielo;
 
+use AbelAguiar\Cielo\Exceptions\InvalidCustomerException;
 use AbelAguiar\Cielo\Exceptions\InvalidMerchantIdException;
 use AbelAguiar\Cielo\Exceptions\InvalidMerchantKeyException;
-use AbelAguiar\Cielo\Exceptions\InvalidCustomerException;
 use AbelAguiar\Cielo\Exceptions\InvalidPaymentMethodException;
-use AbelAguiar\Cielo\Payment;
 
 class Cielo
 {
-
     protected $merchantId;
     protected $merchantKey;
     protected $production;
@@ -41,7 +39,7 @@ class Cielo
     public function setCustomer($name)
     {
         $this->customer = new Customer($name);
-        
+
         return $this;
     }
 
@@ -63,7 +61,7 @@ class Cielo
     public function setPaymentMethod(Payment $paymentMethod)
     {
         $this->paymentMethod = $paymentMethod;
-        
+
         return $this;
     }
 
@@ -121,7 +119,7 @@ class Cielo
     /**
      * Determines if is in production mode.
      *
-     * @return boolean
+     * @return bool
      */
     public function isInProduction()
     {
@@ -131,8 +129,9 @@ class Cielo
     /**
      * Determines if is a valid identifier.
      *
-     * @param  string $merchantId
-     * @return boolean
+     * @param string $merchantId
+     *
+     * @return bool
      */
     protected function isValidId($merchantId)
     {
@@ -142,8 +141,9 @@ class Cielo
     /**
      * Determines if is a valid payment identifier.
      *
-     * @param  string $paymentId
-     * @return boolean
+     * @param string $paymentId
+     *
+     * @return bool
      */
     protected function isValidPaymentId($paymentId)
     {
@@ -153,8 +153,9 @@ class Cielo
     /**
      * Determines if is a valid key.
      *
-     * @param  string $merchantKey
-     * @return boolean
+     * @param string $merchantKey
+     *
+     * @return bool
      */
     protected function isValidKey($merchantKey)
     {
@@ -186,4 +187,3 @@ class Cielo
         }
     }
 }
-

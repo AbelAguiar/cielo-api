@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class CreditCardPaymentTest extends TestCase
 {
-    /** 
+    /**
      * @test
      * @dataProvider invalidCreditCardPaymentProvider
      */
@@ -18,7 +18,7 @@ class CreditCardPaymentTest extends TestCase
         $payment = new CreditCardPayment($data);
     }
 
-    /** 
+    /**
      * @test
      * @dataProvider validCreditCardPaymentProvider
      */
@@ -36,37 +36,37 @@ class CreditCardPaymentTest extends TestCase
         return [
             [
                 [
-                    'cardNumber' => '0000000000000001',
-                    'holder' => 'John F. Doe',
+                    'cardNumber'     => '0000000000000001',
+                    'holder'         => 'John F. Doe',
                     'expirationDate' => '12/2016',
-                    'securityCode' => '123',
-                    'installments' => 10,
-                    'amount' => 129.90
+                    'securityCode'   => '123',
+                    'installments'   => 10,
+                    'amount'         => 129.90,
                 ],
-                'Visa'
+                'Visa',
             ],
             [
                 [
-                    'cardNumber' => '4024007140756650',
-                    'holder' => 'John F. Doe',
+                    'cardNumber'     => '4024007140756650',
+                    'holder'         => 'John F. Doe',
                     'expirationDate' => '12/2016',
-                    'securityCode' => '123',
-                    'installments' => 10,
-                    'amount' => 129.90
+                    'securityCode'   => '123',
+                    'installments'   => 10,
+                    'amount'         => 129.90,
                 ],
-                'Visa'
+                'Visa',
             ],
             [
                 [
-                    'cardNumber' => '372814216093900',
-                    'holder' => 'John F. Doe',
+                    'cardNumber'     => '372814216093900',
+                    'holder'         => 'John F. Doe',
                     'expirationDate' => '12/2016',
-                    'securityCode' => '123',
-                    'installments' => 10,
-                    'amount' => 129.90
+                    'securityCode'   => '123',
+                    'installments'   => 10,
+                    'amount'         => 129.90,
                 ],
-                'AmericanExpress'
-            ]
+                'AmericanExpress',
+            ],
         ];
     }
 
@@ -76,13 +76,13 @@ class CreditCardPaymentTest extends TestCase
             [
                 [
                     'creditCardNumber' => '0000000000000001',
-                    'holderName' => 'John F. Doe',
-                    'expirationDate' => '12/2016',
-                    'security_code' => '123',
-                    'installment' => 10,
-                    'price' => 129.90
-                ]
-            ]
+                    'holderName'       => 'John F. Doe',
+                    'expirationDate'   => '12/2016',
+                    'security_code'    => '123',
+                    'installment'      => 10,
+                    'price'            => 129.90,
+                ],
+            ],
         ];
     }
 }
