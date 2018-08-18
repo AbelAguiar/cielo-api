@@ -36,7 +36,7 @@ class Customer implements Arrayable
     public function toArray()
     {
         return [
-            'Name' => $this->name
+            'Name' => $this->name,
         ];
     }
 }
