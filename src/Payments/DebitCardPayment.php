@@ -2,8 +2,8 @@
 
 namespace AbelAguiar\Cielo\Payments;
 
-use AbelAguiar\Cielo\Payment;
 use AbelAguiar\Cielo\Contracts\Arrayable;
+use AbelAguiar\Cielo\Payment;
 use RunTimeException;
 
 class DebitCardPayment extends Payment implements Arrayable
@@ -19,7 +19,7 @@ class DebitCardPayment extends Payment implements Arrayable
 
     protected $brandPatterns = [
         'Visa'   => '/^4[0-9]{12}(?:[0-9]{3})?$/',
-        'Master' => '/^5[1-5][0-9]{14}$/'
+        'Master' => '/^5[1-5][0-9]{14}$/',
     ];
 
     public function __construct(array $attributes)
@@ -31,6 +31,7 @@ class DebitCardPayment extends Payment implements Arrayable
      * Sets the attributes for the credit card payment.
      *
      * @param array $attributes
+     *
      * @throws RunTimeException
      */
     protected function setAttributes($attributes)
@@ -55,7 +56,7 @@ class DebitCardPayment extends Payment implements Arrayable
      */
     public function getCardBrand()
     {
-        return ($this->brand)?: 'Visa';
+        return ($this->brand) ?: 'Visa';
     }
 
     /**
@@ -68,6 +69,7 @@ class DebitCardPayment extends Payment implements Arrayable
         foreach ($this->brandPatterns as $brand => $pattern) {
             if (preg_match($pattern, $cardNumber)) {
                 $this->brand = $brand;
+
                 return;
             }
 
@@ -83,16 +85,16 @@ class DebitCardPayment extends Payment implements Arrayable
     public function toArray()
     {
         return [
-            'Type' => $this->paymentType,
-            'Amount' => $this->getIntegerAmount(),
+            'Type'      => $this->paymentType,
+            'Amount'    => $this->getIntegerAmount(),
             'ReturnUrl' => $this->returnUrl,
             'DebitCard' => [
-                'CardNumber' => $this->cardNumber,
-                'Holder' => $this->holder,
+                'CardNumber'     => $this->cardNumber,
+                'Holder'         => $this->holder,
                 'ExpirationDate' => $this->expirationDate,
-                'SecurityCode' => $this->securityCode,
-                'Brand' => $this->brand
-            ]
+                'SecurityCode'   => $this->securityCode,
+                'Brand'          => $this->brand,
+            ],
         ];
     }
 }

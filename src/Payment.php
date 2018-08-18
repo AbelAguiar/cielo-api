@@ -42,7 +42,7 @@ abstract class Payment
     /**
      * Gets the integer amount.
      *
-     * @return integer
+     * @return int
      */
     public function getIntegerAmount()
     {

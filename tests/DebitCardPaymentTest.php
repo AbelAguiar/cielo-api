@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class DebitCardPaymentTest extends TestCase
 {
-    /** 
+    /**
      * @test
      * @dataProvider invalidDebitCardPaymentProvider
      */
@@ -18,7 +18,7 @@ class DebitCardPaymentTest extends TestCase
         $payment = new DebitCardPayment($data);
     }
 
-    /** 
+    /**
      * @test
      * @dataProvider validDebitCardPaymentProvider
      */
@@ -36,34 +36,34 @@ class DebitCardPaymentTest extends TestCase
         return [
             [
                 [
-                    'cardNumber' => '0000000000000001',
-                    'holder' => 'John F. Doe',
+                    'cardNumber'     => '0000000000000001',
+                    'holder'         => 'John F. Doe',
                     'expirationDate' => '12/2019',
-                    'securityCode' => '123',
-                    'amount' => 129.90
+                    'securityCode'   => '123',
+                    'amount'         => 129.90,
                 ],
-                'Visa'
+                'Visa',
             ],
             [
                 [
-                    'cardNumber' => '4024007140756650',
-                    'holder' => 'John F. Doe',
+                    'cardNumber'     => '4024007140756650',
+                    'holder'         => 'John F. Doe',
                     'expirationDate' => '12/2019',
-                    'securityCode' => '123',
-                    'amount' => 129.90
+                    'securityCode'   => '123',
+                    'amount'         => 129.90,
                 ],
-                'Visa'
+                'Visa',
             ],
             [
                 [
-                    'cardNumber' => '5415747340190572',
-                    'holder' => 'John F. Doe',
+                    'cardNumber'     => '5415747340190572',
+                    'holder'         => 'John F. Doe',
                     'expirationDate' => '12/2019',
-                    'securityCode' => '430',
-                    'amount' => 129.90
+                    'securityCode'   => '430',
+                    'amount'         => 129.90,
                 ],
-                'Master'
-            ]
+                'Master',
+            ],
         ];
     }
 
@@ -73,12 +73,12 @@ class DebitCardPaymentTest extends TestCase
             [
                 [
                     'debitCardNumber' => '0000000000000001',
-                    'holderName' => 'John F. Doe',
-                    'expirationDate' => '12/2016',
-                    'security_code' => '123',
-                    'price' => 129.90
-                ]
-            ]
+                    'holderName'      => 'John F. Doe',
+                    'expirationDate'  => '12/2016',
+                    'security_code'   => '123',
+                    'price'           => 129.90,
+                ],
+            ],
         ];
     }
 }
